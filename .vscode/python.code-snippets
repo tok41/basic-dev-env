@@ -1,0 +1,38 @@
+{
+	"if main": {
+		"prefix": "ifm",
+		"body": [
+			"if __name__ == '__main__':",
+			"    ${1:pass}"
+		],
+		"description": "main"
+	},
+	"import numpy": {
+		"prefix": "np",
+		"body": [
+			"import numpy as np"
+		],
+		"description": "import numpy"
+	},
+	"import pandas": {
+		"prefix": "pd",
+		"body": [
+			"import pandas as pd"
+		],
+		"description": "import pandas"
+	}, 
+	"import path": {
+		"prefix": "path",
+		"body": [
+			"from pathlib import Path"
+		],
+		"description": "import Path"
+	}, 
+	"print": {
+		"prefix": "print",
+		"body": [
+			"print(f'${1:strings}')"
+		],
+		"description": "print"
+	}, 
+}
