@@ -1,14 +1,15 @@
 version: '3'
 
 services:
-    chocoball-trainer:
-        build: 
+    tok-base:
+        build:
             context: .
             dockerfile: ./docker/Dockerfile
-        image: choco-detector:0.1
-        ports: # 公開用のポート, host:container
+        ports:
+            # 公開用のポート, host:container
             - "8066:8888"
-        container_name: train_choco_detector.1
-        volumes: # host:container
+        container_name: tok_base.1
+        volumes:
+            # host:container
             - $PWD:/workspace
-        command: bash run_jupyter.sh
+        tty: true

@@ -1,17 +1,44 @@
 {
+    // debug
+    "debug.inlineValues": "on",
+    "debug.internalConsoleOptions": "openOnSessionStart",
+    "debug.openDebug": "openOnSessionStart",
+    // 環境変数
+    "python.envFile": "${workspaceFolder}/.env",
+    // test関連
+    "python.testing.pytestArgs": [
+        "test",
+        "--durations=10",
+        "--show-capture=all",
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    // pylance
+    "python.analysis.typeCheckingMode": "basic",
+    // linter
     "python.linting.pylintEnabled": false,
-    "python.formatting.provider": "black",
     "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": [
+        "--max-line-length=89",
+        "--ignore=W503, W504, E203"
+    ],
     "python.linting.lintOnSave": true,
+    // formatter
+    "python.formatting.provider": "black",
     "editor.formatOnSave": true,
-    "python.pythonPath": "/usr/local/bin/python",
+    // ルーラー（89文字に縦線を引く）
+    "editor.rulers": [
+        89,
+    ],
+    // import文を整列してくれる
     "editor.codeActionsOnSave": {
         "source.organizeImports": true
     },
-    "python.testing.pytestArgs": [
-        "test"
-    ],
-    "python.testing.unittestEnabled": false,
-    "python.testing.nosetestsEnabled": false,
-    "python.testing.pytestEnabled": true,
+    // docstring style
+    "autoDocstring.docstringFormat": "google",
+    // minimapを消す
+    "editor.minimap.enabled": false,
+    // previewモード
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
 }
