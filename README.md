@@ -1,3 +1,3 @@
-# basic settings
+# base env
 
-ディレクトリ構成の基本設定。
+個人的なbaseの開発環境
