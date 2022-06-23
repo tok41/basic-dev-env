@@ -5,10 +5,13 @@ services:
         build:
             context: .
             dockerfile: ./docker/Dockerfile
+        command: bash bin/start.sh
         ports:
             # 公開用のポート, host:container
             - "8066:8888"
+            - "55678:5678"
         volumes:
             # host:container
             - $PWD:/workspace
+            - $PWD/jupyterlab/kernel.json:/usr/local/share/jupyter/kernels/debugpy/kernel.json
         tty: true

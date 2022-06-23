@@ -1,0 +1,15 @@
+{
+    "argv": [
+        "python3",
+        "-m",
+        "debugpy",
+        "--listen",
+        "0.0.0.0:5678",
+        "-m",
+        "ipykernel_launcher",
+        "-f",
+        "{connection_file}"
+    ],
+    "display_name": "Python3 Debug",
+    "language": "python"
+}
