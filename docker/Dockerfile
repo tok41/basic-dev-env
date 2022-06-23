@@ -11,10 +11,9 @@ RUN apt-get install -y \
 	wget
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
-RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 
-COPY requirements.txt /tmp/
-RUN pip install --upgrade pip
-RUN pip install -r /tmp/requirements.txt
-
-RUN jupyter serverextension enable --py jupyterlab
+# install poetry
+ENV POETRY_HOME=/opt/poetry
+RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python - && \
+	cd /usr/local/bin && \
+	ln -s /opt/poetry/bin/poetry

@@ -8,7 +8,6 @@ services:
         ports:
             # 公開用のポート, host:container
             - "8066:8888"
-        container_name: tok_base.1
         volumes:
             # host:container
             - $PWD:/workspace
