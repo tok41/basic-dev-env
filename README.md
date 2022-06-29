@@ -12,10 +12,20 @@
 docker-compose up --build
 ```
 
+jupyterlabが自動で立ち上がるので、docker-composeに設定するport番号(8066)で繋がる。
+
+<http://localhost:8066>
+
 - attach container
 
 ```bash
 docker-compose exec tok-base bash
+```
+
+- down & remove container
+
+```bash
+docker-compose down
 ```
 
 ## デバッグ
@@ -38,7 +48,10 @@ pytestを走らせる場合は以下
 poetry run python -m debugpy --listen 0.0.0.0:5678 --wait-for-client -m pytest test/test_sample.py -s -k  test_sample
 ```
 
-jupyterlab からアタッチさせる場合（下記手順）
+### jupyterlab からアタッチさせる場合（下記手順）
+
+デバッガをjupyterlabにアタッチさせる（`Python: Remote Attach` を利用）。
+main関数を書いたりしなくて良いのでモジュールの開発とでデバッグが容易になるかも。
 
 - jupyter lab からデバッグ用カーネル（Python3 Debug）でnotebook作成
 - VSCodeでRemote Attachでデバッガ起動（接続待ちになる）
