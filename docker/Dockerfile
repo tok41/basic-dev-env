@@ -14,7 +14,7 @@ RUN apt-get install -y nodejs
 
 # install poetry
 ENV POETRY_HOME=/opt/poetry
-RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python - && \
+RUN curl -sSL https://install.python-poetry.org | POETRY_VERSION=1.2.0a2 python - && \
 	cd /usr/local/bin && \
 	ln -s /opt/poetry/bin/poetry && \
 	poetry config virtualenvs.in-project true
