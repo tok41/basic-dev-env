@@ -7,3 +7,4 @@ Untitled*
 .pytest_cache/
 .ipynb_checkpoints/
 .cache/
+.DS_Store
