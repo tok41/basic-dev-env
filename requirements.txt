@@ -1,9 +1,0 @@
-flake8
-black
-pytest
-tqdm
-click
-jupyter
-jupyterlab
-numpy
-pandas
