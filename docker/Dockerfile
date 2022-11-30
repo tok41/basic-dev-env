@@ -11,6 +11,7 @@ RUN apt-get install -y \
 	wget
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
+RUN apt-get install -y python3-dev
 
 # install poetry
 ENV POETRY_HOME=/opt/poetry
