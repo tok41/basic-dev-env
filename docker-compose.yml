@@ -8,8 +8,8 @@ services:
         command: bash bin/start.sh
         ports:
             # 公開用のポート, host:container
-            - "8066:8888"
-            - "55678:5678"
+            - "${JUPYTER_PORT:-48888}:8888"
+            - "${PY_DEBUG_PORT:-45678}:5678"
         volumes:
             # host:container
             - $PWD:/workspace
