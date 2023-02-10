@@ -12,9 +12,17 @@
 docker-compose up --build
 ```
 
-jupyterlabが自動で立ち上がるので、docker-composeに設定するport番号(8066)で繋がる。
+jupyterlabが自動で立ち上がるので、docker-composeに設定するport番号で繋がる。
+port番号は、デフォルトで`48888`となっている。
 
-<http://localhost:8066>
+<http://localhost:48888>
+
+jupyterlab接続用のport番号は環境変数`JUPYTER_PORT`で指定できる。
+docker立ち上げ時に環境変数を指定する場合は下記の通り実行する。
+
+```bash
+JUPYTER_PORT=48889 docker-compose up
+```
 
 - attach container
 
