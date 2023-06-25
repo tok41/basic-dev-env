@@ -1,0 +1,14 @@
+tqdm
+numpy
+pandas
+scipy
+matplotlib
+scikit-learn 
+seaborn
+jupyter
+jupyterlab
+
+flake8
+black
+pytest
+debugpy
