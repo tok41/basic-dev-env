@@ -1,44 +1,75 @@
 # base env
 
-個人的な基本の開発環境
+個人的な基本の開発環境（uv版）
 
 ## 環境構築
 
-### 事前準備(推奨)
+### 事前準備
 
-- [pyenv](https://github.com/pyenv/pyenv#installation)の導入
-- pyenvを通して適当なバージョンのpythonをインストールしておく
+- [uv](https://docs.astral.sh/uv/)のインストール
+
+```bash
+# uvをインストール
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
 
 ### 環境構築手順
 
-venvの環境を作る。`kasou`は仮想環境の名称なので、なんでも良い。
+依存関係のインストール
 
 ```bash
-python -m venv kasou
+# 本体の依存関係をインストール
+uv sync
+
+# 開発用依存関係も含める場合
+uv sync --group dev
 ```
 
-仮想環境を有効化
+### 使用方法
+
+#### Jupyter Labの起動
+
+シェルスクリプトでJupyter Labのポートを環境変数`JUPYTER_PORT`から取得して設定できます。
 
 ```bash
-source kasou/bin/activate
-```
-
-仮想環境で必要なパッケージのインストール
-
-```bash
-python -m pip install -r requirements.txt 
-```
-
-jupyter labの起動。
-直接jupyterコマンドを実行しても良いが、下記のシェルスクリプトでjupyterlabのポートを環境変数`JUPYTER_PORT`から取得して設定する。
-
-```bash
+# デフォルトポート(58888)で起動
 bash bin/run_jupyter.sh
+
+# カスタムポートで起動
 JUPYTER_PORT=48888 bash bin/run_jupyter.sh
 ```
 
-仮想環境の終了
+#### Pythonスクリプトの実行
 
 ```bash
-deactivate
+# uv環境でスクリプト実行
+uv run python src/sample.py
 ```
+
+#### テストの実行
+
+```bash
+# pytestでテスト実行
+uv run pytest test/
+```
+
+#### 開発ツールの使用
+
+```bash
+# コードフォーマット
+uv run black src/ test/
+
+# コード品質チェック
+uv run flake8 src/ test/
+```
+
+## lockファイルの扱い
+
+このプロジェクトでは `.gitignore` で `uv.lock` をgit管理対象外に設定しています。ロックファイルの管理方針はプロジェクトの特性に応じて異なるため、必要に応じて `.gitignore` を編集して管理対象に変更してください。
+
+## uvの利点
+
+- 高速な依存関係解決とインストール
+- Pythonバージョン管理内蔵
+- pyproject.tomlによる現代的なプロジェクト管理
+- ロックファイル（uv.lock）による再現可能な環境
