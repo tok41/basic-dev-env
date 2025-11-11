@@ -3,9 +3,12 @@
 *.o
 Untitled*
 .coverage
+.python-version
 
 .pytest_cache/
 .ipynb_checkpoints/
 .cache/
 .DS_Store
 tmp/
+
+kasou/
