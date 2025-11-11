@@ -12,3 +12,7 @@ Untitled*
 tmp/
 
 kasou/
+
+# UV
+.venv/
+uv.lock
